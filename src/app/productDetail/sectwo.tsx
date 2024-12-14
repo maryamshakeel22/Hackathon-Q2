@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from "next/image";
 import Link from 'next/link';
+import { IoHeartOutline, IoShareSocialOutline } from 'react-icons/io5';
+import { VscArrowSwap } from 'react-icons/vsc';
 
 const Sectwo = () => {
   return (
@@ -24,105 +26,110 @@ const Sectwo = () => {
         <hr />
         <section className="text-gray-600 body-font">
   <div className="container px-5 py-16 mx-auto">
-  <div className="sm:flex-row flex-col py-3 mb-12">
-        <h1 className='text-center justify-center font-medium text-[30px] text-black'>
+    <div className="sm:flex-row flex-col py-3 mb-12">
+      <h1 className="text-center justify-center font-medium text-[30px] text-black">
         Related Product
-        </h1>
-      </div>
-    <div className="flex flex-wrap -m-4">
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-[301] w-[285]  overflow-hidden ">
-          <Image
-            alt="ecommerce"
-            className="object-cover object-center w-full h-full block"
-            src={'/p1.png'}
-            width={285}
-            height={301}
-          />
-          <span className="absolute top-2 right-0  text-white bg-red-400 text-xs px-1 text-center py-3 mr-2 rounded-full">
-           <p className='text-xs'>-30%</p>
-</span>
-        </a>
-        <div className="bg-[#F4F5F7] py-4 pl-3">
-          <h2 className="text-gray-900 title-font text-lg font-medium">
-          Syltherine
-          </h2>
-          <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-          Stylish cafe chair
-          </h3>
-          <p className="mt-1 gap-2 text-black font-semibold flex ">Rp 2.500.000 <span className="text-[#B0B0B0] gap-1 pt-1 font-normal text-xs line-through decoration-gray-300">Rp 3.500.00</span></p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-      <a className="block relative h-[301] w-[285]  overflow-hidden">
-          <Image
-            alt="ecommerce"
-            className="object-cover object-center w-full h-full block"
-            src={'/p1.png'}
-            width={285}
-            height={301}
-          />
-        </a>
-        <div className="bg-[#F4F5F7] py-4 pl-3">
-          <h2 className="text-gray-900 title-font text-lg font-medium">
-          Lolito
-          </h2>
-          <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-          Luxury big sofa
-          </h3>
-          <p className="mt-1 text-black font-semibold flex">Rp 7.000.000 </p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-      <a className="block relative h-[301] w-[285]  overflow-hidden">
-          <Image
-            alt="ecommerce"
-            className="object-cover object-center w-full h-full block"
-            src={'/p2.png'}
-            width={285}
-            height={301}
-          />
-          <span className="absolute top-2 right-0  text-white bg-red-400 text-xs px-1 text-center py-3 mr-2 rounded-full">
-           <p className='text-xs'>-50%</p>
-</span>
-        </a>
-        <div className="bg-[#F4F5F7] py-4 pl-3">
-          <h2 className="text-gray-900 title-font text-lg font-medium">
-          Lolito
-          </h2>
-          <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-          Luxury big sofa
-          </h3>
-          <p className="mt-1 text-black font-semibold gap-2 flex">Rp 7.000.000 <span className="text-[#B0B0B0] gap-1 pt-1 font-normal text-xs line-through decoration-gray-300">Rp 3.500.000</span></p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-      <a className="block relative h-[301] w-[285]  overflow-hidden">
-          <Image
-            alt="ecommerce"
-            className="object-cover object-center w-full h-full block"
-            src={'/p3.png'}
-            width={285}
-            height={301}
-          />
-          <span className="absolute top-2 right-0  text-white bg-[#2EC1AC] text-xs px-1 text-center py-2 mr-2 rounded-full">
-           <p className='text-xs'>New</p>
-</span>
-        </a>
-        <div className="bg-[#F4F5F7] py-4 pl-3">
-          <h2 className="text-gray-900 title-font text-lg font-medium">
-          Respira
-          </h2>
-          <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-          Outdoor bar table and stool
-          </h3>
-          <p className="mt-1 text-black font-semibold">Rp 500.000</p>
-        </div>
-      </div>
+      </h1>
     </div>
-    <div className='text-center justify-center items-center'>
-    <Link href={'/shop'}><button className='text-center border border-[#B88E2F] text-sm font-semibold py-2 px-10 justify-center mt-9 text-[#B88E2F] items-center'>Show More</button></Link>
-  </div>
+    <div className="flex flex-wrap -m-4">
+      {[
+        {
+          image: "/p1.png",
+          discount: "-30%",
+          name: "Syltherine",
+          description: "Stylish cafe chair",
+          price: "Rp 2.500.000",
+          oldPrice: "Rp 3.500.000",
+        },
+        {
+          image: "/p1.png",
+          name: "Lolito",
+          description: "Luxury big sofa",
+          price: "Rp 7.000.000",
+        },
+        {
+          image: "/p2.png",
+          discount: "-50%",
+          name: "Lolito",
+          description: "Luxury big sofa",
+          price: "Rp 7.000.000",
+          oldPrice: "Rp 3.500.000",
+        },
+        {
+          image: "/p3.png",
+          label: "New",
+          labelColor: "#2EC1AC",
+          name: "Respira",
+          description: "Outdoor bar table and stool",
+          price: "Rp 500.000",
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="lg:w-1/4 md:w-1/2 p-4 w-full relative group"
+        >
+          <a className="block relative h-[301] w-[285] overflow-hidden">
+            <Image
+              alt={item.name}
+              className="object-cover object-center w-full h-full block transition-transform duration-300 group-hover:scale-110"
+              src={item.image}
+              width={285}
+              height={301}
+            />
+            {item.discount && (
+              <span className="absolute top-2 right-0 text-white bg-red-400 text-xs px-1 text-center py-2 mr-2 rounded-full">
+                {item.discount}
+              </span>
+            )}
+            {item.label && (
+              <span
+                className="absolute top-2 right-0 text-white text-xs px-1 text-center py-2 mr-2 rounded-full"
+                style={{ backgroundColor: item.labelColor }}
+              >
+                {item.label}
+              </span>
+            )}
+            {/* Hover Overlay */}
+            <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center">
+              <Link href={'/shop'} >
+              <button className="bg-white text-[#B88E2F] px-3 py-2 text-sm mb-2">
+                View Product
+              </button>
+              </Link>
+              <div className="flex gap-4 text-[12px]">
+              <button className="text-white flex"> <IoShareSocialOutline className='size-5' /> <span>Share</span> </button>
+                  <button className="text-white flex"><VscArrowSwap className='size-5' /> <span>Compare</span></button>
+                  <button className="text-white flex"><IoHeartOutline className='size-5' /> <span>Like</span></button>
+                
+              </div>
+            </div>
+          </a>
+          <div className="bg-[#F4F5F7] py-4 pl-3">
+            <h2 className="text-gray-900 title-font text-lg font-medium">
+              {item.name}
+            </h2>
+            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+              {item.description}
+            </h3>
+            <p className="mt-1 gap-2 text-black font-semibold flex">
+              {item.price}
+              {item.oldPrice && (
+                <span className="text-[#B0B0B0] gap-1 pt-1 font-normal text-xs line-through decoration-gray-300">
+                  {item.oldPrice}
+                </span>
+              )}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div className="text-center justify-center items-center">
+      <Link href={'/shop'}>
+        <button className="text-center border border-[#B88E2F] text-sm font-semibold py-2 px-10 justify-center mt-9 text-[#B88E2F] items-center">
+          Show More
+        </button>
+      </Link>
+    </div>
   </div>
 </section>
 <hr />
