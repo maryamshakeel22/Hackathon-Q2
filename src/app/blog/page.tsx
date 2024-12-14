@@ -1,38 +1,104 @@
-import React from "react";
-import Image from 'next/image';
-import { FaGreaterThan } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 import Frame from "../frame";
+import BlogCenter from "./blogCenter";
+import { CiSearch } from "react-icons/ci";
+import Image from 'next/image'
+import { RelatedPost } from "./relatedPost";
+import { FaGreaterThan } from "react-icons/fa6";
 
-function OurBlogs() {
+export default function Blog() {
   return (
-    <>
-     <div className='relative'>
-        <Image src={'/bgshop.png'}
-        alt='bgshop'
-        width={1440}
-        height={316}
-        className=''/>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg text-center py-6 md:px-10 md:py-8 lg:w-1/2">
-        <h3 className="text-xl md:text-3xl font-bold  leading-snug mt-2">
-          Blog
-        </h3>
-        <h6 className="text-lg font-semibold leading-relaxed flex justify-center text-center items-center gap-2 p-3">Home <FaGreaterThan className=''/><span className='font-light text-gray-700'>Blog</span> </h6>
-      </div>
-      </div>
-      <div className="py-24 px-10">
-        <div className="text-cener justify-center items-center">
-      <Image src={'/blog.png'}
-        alt='bgshop'
-        width={817}
-        height={500}
-        className=''/>
-        <h1 className="font-bold text-xl py-10">Going all-in with millennial design</h1>
-        <p className="text-sm text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.</p>
+    <div>
+    <section className="bg-[url('/bgshop.png')] bg-cover bg-center py-12 md:py-16">
+        <div className="container mx-auto px-4 text-center">
+          <div className="inline-block w-16 h-16 mb-4" >
+          <Image src={'/logo.png'} alt='' width={77} height={77}/> </div>
+          <h1 className="text-3xl md:text-4xl font-medium mb-4">Blog</h1>
+          <div className="flex items-center justify-center gap-2 text-sm">
+            <a href="#" className="hover:underline font-bold">
+              Home
+            </a>
+            <span>
+              <FaGreaterThan width={20} height={20}/>
+            </span>
+            <span>Blog</span>
+          </div>
         </div>
-      </div>
-      <Frame />
-    </>
+      </section>
+    <div className="w-full relative bg-white flex flex-col items-start justify-start leading-normal tracking-normal">
+      <main className="flex flex-col justify-start mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12 pt-24">
+
+
+        {/* mainsection */}
+        <section className="w-full flex flex-col lg:flex-row items-start justify-start gap-6 lg:gap-10">
+          {/* cards */}
+          <div className="w-full">
+            <BlogCenter />
+          </div>
+
+          {/* sidebar */}
+          <aside className="relative w-full lg:w-1/3 flex flex-col items-center gap-6">
+            <div className="relative w-full">
+              {/* <Input className="mb-6 h-12 w-full" /> */}
+              <div className="absolute top-3 right-4">
+                <CiSearch />
+              </div>
+            </div>
+
+            <div className="bg-white w-full px-6">
+              <h3 className="text-2xl font-semibold mb-6">Categories</h3>
+              <ul className="space-y-4 text-darkgray">
+                <li className="flex justify-between">
+                  <a href="#" className="hover:text-black">Crafts</a>
+                  <p>2</p>
+                </li>
+                <li className="flex justify-between">
+                  <a href="#" className="hover:text-black">Design</a>
+                  <p>8</p>
+                </li>
+                <li className="flex justify-between">
+                  <a href="#" className="hover:text-black">Handmade</a>
+                  <p>7</p>
+                </li>
+                <li className="flex justify-between">
+                  <a href="#" className="hover:text-black">Interior</a>
+                  <p>1</p>
+                </li>
+                <li className="flex justify-between">
+                  <a href="#" className="hover:text-black">Wood</a>
+                  <p>6</p>
+                </li>
+              </ul>
+            </div>
+
+            {/* related post */}
+            <div className="border border-darkgray w-full px-6 py-4 mt-6">
+              <h1 className="text-2xl font-medium mb-6">Recent Posts</h1>
+              {RelatedPost.map((item, index) => (
+                <div className="flex gap-3 mb-6" key={index}>
+                  <Image src={item.src} width={80} height={80} alt="rp1" />
+                  <div className="flex flex-col">
+                    <p>{item.heading}</p>
+                    <p className="text-gray-400">{item.date}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </section>
+
+        {/* four-button div */}
+        <div className="flex gap-4 items-center justify-center my-8">
+          <Button className="w-12 h-12 text-lg bg-[#b88e2f] hover:bg-[#b88e2f]">1</Button>
+          <Button className="w-12 h-12 text-lg bg-white text-black hover:bg-[#b88e2f] hover:text-white">2</Button>
+          <Button className="w-12 h-12 text-lg bg-white text-black hover:bg-[#b88e2f] hover:text-white">3</Button>
+          <Button className="w-12 h-12 text-lg bg-white text-black hover:bg-[#b88e2f] hover:text-white">Next</Button>
+        </div>
+
+        
+      </main>
+    </div>
+    <Frame />
+    </div>
   );
 }
-
-export default OurBlogs;
