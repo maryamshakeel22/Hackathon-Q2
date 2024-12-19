@@ -25,7 +25,7 @@ export default function Header() {
     <MdPersonOutline width={48} height="24" className=" hover:text-gray-900 w-[48px] h-[24px]"/>
     <CiSearch width={48} height="24" className=" hover:text-gray-900 w-[48px] h-[24px]"/>
     <GoHeart width={48} height="24" className=" hover:text-gray-900 w-[48px] h-[24px]"/>
-    <Link href={'/productDetail'}><AiOutlineShoppingCart width={48} height="24" className="hover:text-gray-900 w-[48px] h-[24px]"/></Link>
+    <Link href={'/cart'}><AiOutlineShoppingCart width={48} height="24" className="hover:text-gray-900 w-[48px] h-[24px]"/></Link>
     </div>
   </div>
 </header>
